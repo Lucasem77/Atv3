@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Palíndromo, ATV03</title>
+</head>
+<body>
+    <h1>Verificador de Palíndromo</h1>
+    <label for="inputWord">Digite a palavra:</label>
+    <input type="text" id="inputWord">
+    <button id="checkButton">Verificar</button>
+    <p id="result"></p>
+
+    <script>
+        // Função para verificar se uma palavra é um palíndromo
+        function isPalindrome(word) {
+            const cleanedWord = word.replace(/\s/g, '').toLowerCase();
+            const reversedWord = cleanedWord.split('').reverse().join('');
+            return cleanedWord === reversedWord;
+        }
+
+        const checkButton = document.getElementById('checkButton');
+        const inputWord = document.getElementById('inputWord');
+        const result = document.getElementById('result');
+
+        checkButton.addEventListener('click', function() {
+            const inputValue = inputWord.value;
+            if (isPalindrome(inputValue)) {
+                result.textContent = `${inputValue} é um palíndromo.`;
+            } else {
+                result.textContent = `${inputValue} não é um palíndromo.`;
+            }
+        });
+    </script>
+</body>
+</html>
